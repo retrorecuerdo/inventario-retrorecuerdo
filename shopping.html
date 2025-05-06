@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inventario Shopping</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fefefe;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 2rem auto;
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 2rem;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.3rem;
+    }
+
+    .button-row {
+      margin-top: 1.5rem;
+      text-align: center;
+    }
+
+    button {
+      padding: 0.6rem 1.2rem;
+      margin: 0.3rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    #ultimoCodigo {
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .back-button {
+      margin-top: 2rem;
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      color: #000;
+      font-size: 0.9rem;
+    }
+
+    .resultado, .ultimos {
+      margin-top: 2rem;
+      background-color: #f9f9f9;
+      border: 1px dashed #aaa;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+
+    .resultado h3, .ultimos h3 {
+      margin-top: 0;
+    }
+
+    .ultimos ul {
+      padding-left: 1rem;
+      text-align: left;
+    }
+
+    .ultimos li {
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🛍 Inventario Shopping</h1>
+
+    <div id="ultimoCodigo">Último código: cargando...</div>
+
+    <label for="codigo">Código</label>
+    <input type="text" id="codigo" />
+
+    <label for="producto">Producto</label>
+    <input type="text" id="producto" />
+
+    <label for="categoria">Categoría</label>
+    <select id="categoria">
+      <option value="">Seleccionar</option>
+      <option value="PODERTERNIA">PODERTERNIA</option>
+      <option value="PLOPVERSE">PLOPVERSE</option>
+      <option value="PIZZA-TIME">PIZZA-TIME</option>
+      <option value="ALBUMANÍA">ALBUMANÍA</option>
+      <option value="PAPELORIGAMI">PAPELORIGAMI</option>
+      <option value="MEDIOTECA">MEDIOTECA</option>
+      <option value="SODAMERCH">SODAMERCH</option>
+      <option value="KAWAIIMANIA">KAWAIIMANIA</option>
+      <option value="RETROJUGUETES">RETROJUGUETES</option>
+    </select>
+
+    <label for="cantidad">Cantidad</label>
+    <input type="number" id="cantidad" />
+
+    <label for="ubicacion">Ubicación</label>
+    <input type="text" id="ubicacion" />
+
+    <label for="laminas">Láminas</label>
+    <input type="text" id="laminas" />
+
+    <label for="particular">Particular</label>
+    <select id="particular">
+      <option value="Ignacio" selected>Ignacio</option>
+      <option value="Emanuel">Emanuel</option>
+      <option value="María Antonieta Jara">María Antonieta Jara</option>
+    </select>
+
+    <label for="precio base">Precio Base</label>
+    <input type="number" id="precio base" />
+
+    <label for="%ignacio">% Ignacio</label>
+    <input type="number" id="%ignacio" />
+
+    <label for="%emanuel">% Emanuel</label>
+    <input type="number" id="%emanuel" />
+
+    <label for="%retrorecuredo">% RetroRecuerdo</label>
+    <input type="number" id="%retrorecuredo" />
+
+    <label for="precio final">Precio Final</label>
+    <input type="number" id="precio final" />
+
+    <label for="estado">Estado</label>
+    <input type="text" id="estado" />
+
+    <label for="publicado">Publicado</label>
+    <select id="publicado">
+      <option value="">Seleccionar</option>
+      <option value="Sí">Sí</option>
+      <option value="No">No</option>
+    </select>
+
+    <label for="observacion">Observación</label>
+    <input type="text" id="observacion" />
+
+    <div class="button-row">
+      <button onclick="guardarProducto()">Guardar</button>
+      <button onclick="modificarProducto()">Modificar</button>
+      <button onclick="consultarPorCodigo()">Consultar</button>
+    </div>
+
+    <div class="resultado" id="resultadoConsulta">
+      <h3>🔍 Resultado de consulta</h3>
+      <div id="datosConsulta">Ingresa un código y presiona “Consultar”.</div>
+    </div>
+
+    <div class="ultimos" id="ultimosProductos">
+      <h3>🕓 Últimos 5 productos ingresados</h3>
+      <ul id="listaUltimos">
+        <li>Cargando...</li>
+      </ul>
+    </div>
+
+    <a class="back-button" href="index.html">← Volver al menú principal</a>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
